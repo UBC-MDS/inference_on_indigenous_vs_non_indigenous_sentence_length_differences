@@ -16,6 +16,39 @@ Initially, the analysis will involve exploratory data analysis, where we will us
 
 The final evaluation will be completed by obtaining the p-value based on the effect size for our samples and comparing it to our significance level. If the p-value is smaller than the significance level, we can claim that there is enough statistical evidence to reject the null hypothesis. The null distribution and test statistic will presented as a figure, and the p-value and effect size in a table. Whilst evaluating our findings, we will need to consider the power of the test based on the sample size and the magnitude of the effect we observed. The preliminary EDA can be found in this [file](https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/src/EDA.ipynb).
 
+## Report
+
+The final report can be found
+[here](Final Report URL).
+
+## Usage
+
+To replicate the analysis, clone this GitHub repository, ensure you have installed the
+[dependencies](#dependencies) listed below, and run the following
+commands in the command line/terminal from the root directory of this sequentially
+project:
+
+    # download data
+    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="../data/raw/offender_profile.csv".csv" --file_path="./data/raw/offender_profile.csv"
+    
+    # run eda report and save it as PDF in src folder
+    jupyter nbconvert --to pdf --execute "src/eda_offender_profile_raw_data.ipynb"
+
+    # run sample-docopt.R (To be removed)
+    Rscript src/sample-docopt.r --raw_data_path="./data/raw/offender_profile.csv" --processed_dir_path="./data/processed"
+
+## Dependencies
+
+  - Python 3.7.3 and Python packages:
+      - docopt==0.6.2
+      - numpy==1.21.2
+      - pandas==1.3.2
+      - altair==4.1.0
+      - altair-saver==0.5.0
+  - R version 3.6.1 and R packages:
+      - knitr==1.26
+      - docopt==0.7.1
+
 ## License
 
 The Breast Cancer Predictor materials here are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
