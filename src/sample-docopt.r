@@ -8,6 +8,8 @@ Options:
 
 library(tidyverse)
 library(docopt)
+library(janitor)
+
 set.seed(2020)
 
 opt <- docopt(doc)
@@ -21,11 +23,15 @@ main <- function(raw_data_path, processed_dir_path) {
     try({
         dir.create(processed_dir_path, showWarnings = FALSE)
     })
+    
+    processed_data <- raw_data |> clean_names() |>
+      filter(sentence_type == "DETERMINATE") |>
+      select(race_grouping, aggregate_sentence_length)
 
     z <- paste(processed_dir_path, "/processed_offender_profile.csv", sep = "")
     print(z)
     write.csv(
-        raw_data,
+        processed_data,
         paste(processed_dir_path, "/processed_offender_profile.csv", sep = "")
     )
 }
