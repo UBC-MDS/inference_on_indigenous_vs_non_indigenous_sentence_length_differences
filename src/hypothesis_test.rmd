@@ -1,0 +1,84 @@
+---
+title: "Hypothesis Testing of Offender Profile data set"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(infer)
+library(knitr)
+set.seed(2021)
+```
+
+## Define the statistic we are interested in
+
+We are interested in inferring if there is a statistically significant difference in the length of sentences between indigenous and non-indigenous offenders in the Correctional Services of Canada. Based on the previous EDA work, we can see the distribution of the length of sentences is strongly skewed for both indigenous and non-indigenous offenders. Besides, we have two independent samples of observations for two groups. Therefore, we choose the difference of medians of the length of sentences to be our interested statistics because it is more robust than the mean for the skewed data set.
+
+## The hypotheses and test statistic
+
+We set the hypotheses as following:
+
+$H_0$: The median length of sentences of indigenous group, $M_1$, is equal to the median length of sentences of non-indigenous group, $M_2$.
+
+$H_A$: The median length of sentences of indigenous group, $M_1$, is equal to the median length of sentences of non-indigenous group, $M_2$.
+
+Test statistic: $\hat{M}_1-\hat{M}_2$.
+
+## Method of hypothesis test
+
+Since we choose the difference of medians to be our interest statistic, we will use the permutation test here. 
+
+## Result from hypothesis test for the difference in medians
+
+```{r hypothesis, echo=FALSE}
+# read data
+processed_offender <- read_csv("../data/processed/processed_offender_profile.csv")[, 2:3]
+processed_offender <- processed_offender |> 
+  mutate(race_grouping = as.factor(race_grouping))
+
+# get difference in medians as the test statistic
+diff_medians <- processed_offender |> 
+  specify(formula = aggregate_sentence_length ~ race_grouping) |> 
+  calculate(stat = "diff in medians",
+            order = c("Indigenous", "Non Indigenous"))
+
+# null distribution by permutation test
+null_distribution <- processed_offender |>
+  specify(formula = aggregate_sentence_length ~ race_grouping) |>
+  hypothesize(null = "independence") |>
+  generate(reps = 5000, type = "permute") |>
+  calculate(stat = "diff in medians", 
+            order = c("Indigenous", "Non Indigenous"))
+
+# 95% confidence interval of the null distribution
+ci_95 <- null_distribution |>
+  get_confidence_interval(level = 0.95, type = "percentile")
+```
+
+```{r hypothesis_plot, echo=FALSE, fig.width=8, fig.height=6}
+# plot of null distribution
+null_distribution_plot <- null_distribution |> 
+  visualize() +
+  geom_vline(xintercept = diff_medians$stat, color = "red") + 
+  shade_confidence_interval(endpoints = ci_95, alpha = 0.2) + 
+  labs(x = "Difference in medians of indigenous vs. non indigenous offenders",
+       y = "Count", 
+       subtitle = "Red line shows observed difference in medians with 95% CI shaded") +
+  theme_bw()
+
+null_distribution_plot
+```
+
+Figure 1. Distribution of null hypothesis for the difference in medians for Indigenous vs. Non Indigenous offenders
+
+```{r pvalue, echo=FALSE, fig.cap = "Table 1. p-value from hypothesis test"}
+p_value <- null_distribution |>
+  get_pvalue(obs_stat = diff_medians, direction = "two_sided")
+
+knitr::kable(tibble("diff in means" = diff_medians$stat, p_value), 
+             "simple", 
+             caption = "Table 1. p-value from hypothesis test")
+```
+
+Since the test statistic falls in the left tail in the distribution plot and the $p$-value $= 0.0328 < 0.05$, we can conclude that given the significant level of $\alpha = 0.05$, there is statistically significant evidence that we can reject $H_0$ such that there is significant difference in the length of sentences between indigenous and non-indigenous offenders in the Correctional Services of Canada.

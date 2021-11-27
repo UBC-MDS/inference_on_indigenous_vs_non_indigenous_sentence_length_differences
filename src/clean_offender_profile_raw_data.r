@@ -16,7 +16,7 @@ opt <- docopt(doc)
 
 main <- function(raw_data_path, processed_dir_path) {
     # read data and convert class to factor
-    raw_data <- readr::read_csv(raw_data_path)
+    raw_data <- readr::read_csv(raw_data_path, skip=1)
 
     print(raw_data)
     # write scale factor to a file
