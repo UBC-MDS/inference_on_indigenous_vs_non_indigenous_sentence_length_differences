@@ -29,7 +29,6 @@ opt = docopt(__doc__)
 def main(processed_data_path, results_folder_path):
   
   df_init = pd.read_csv(processed_data_path)
-  #df_init = pd.read_csv('processed_offender_profile.csv')
   
   alt.data_transformers.disable_max_rows() #normally, altair limits it to 5K rows
   alt.renderers.enable('png')
