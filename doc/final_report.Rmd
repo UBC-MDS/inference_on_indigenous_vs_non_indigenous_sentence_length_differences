@@ -1,6 +1,6 @@
 ---
 title: "Statistical siginificance in the aggregate sentence lengths of indigenous vs non-indigenuous offenders"
-author: "Mukund Iyer, Yuno Park, Rada Rudyak, Chaoran Wang "
+author: "Mukund Iyer, Kyle Ahn, Rada Rudyak, Chaoran Wang "
 date: "2021/11/26"
 always_allow_html: true
 params: 
@@ -60,7 +60,7 @@ The R [@R] and Python programming languages [@Python] and the following R and Py
 The only relevant columns for our hypothesis test were the ‘aggregate sentence length’ and the ‘racial grouping’. ‘Racial grouping’ column was included in the report and summarized data from the ‘race’ columns into two categories. “Aboriginal” corresponded to the offenders with a race of “First Nations”, “Métis”, or “Inuit”. “Non Aboriginal” corresponded to all others. Note that this information was self-reported.
 
 ```{r counts, inlude=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-counts <- read_csv('../results/EDA/group_counts.csv')
+counts <- read_csv('../results/group_counts.csv')
 ```
 
 All other columns were dropped. The count of observations in either group was `r counts$Count[2]` and `r format(counts$Count[1])`, meaning we had a large enough sample size to carry out a t-test.
@@ -68,19 +68,21 @@ All other columns were dropped. The count of observations in either group was `r
 ```{r observations_group}
 knitr::kable(counts, caption = "Table 1. Number of observations in each group.", col.names = c("Group",
                            "Count of Offenders"))
+
+                
 ```
 <br />
 To decide what kind of measure of central tendency to apply in our hypothesis test, we looked at the distribution of the sentence lengths of either group (orange - non-indigenous, blue - indigenous) using a density plot. The distributions for both groups were right skewed, so we decided to use the median as our parameter as it is less affected by the outliers. 
 
 ```{r desnity, fig.width=7, fig.height=3, fig.cap = "Figure 1. The distribution of the aggregate sentence length of offenders by racial group.", out.width='100%'}
-knitr::include_graphics('../results/EDA/eda-densities.png')
+knitr::include_graphics('../results/eda-densities.png')
 ```
 
 Looking at the boxplot, we noted the large overlap in the confidence intervals between the two groups, which at a glance indicated that a statistically significant difference was unlikely. 
 
 ```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The marker at the center of the box corresponds to the median.", out.width='100%'}
 
-knitr::include_graphics('../results/EDA/eda-box_plots.png')
+knitr::include_graphics('../results/eda-box_plots.png')
 ```
 
 We had a large enough sample size to apply a permutation test as the toal sample size was `r format(counts$Count[1] + counts$Count[2])`. We carried out the permutation test with r N_REPEATS under the null hypothesis, computing and comparing the median for each of the two groups.

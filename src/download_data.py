@@ -18,7 +18,10 @@ def main(url, file_path):
         folder_path = file_path.rsplit("/", 1)[0]
         if os.path.exists(folder_path) is False:
             os.makedirs(os.path.dirname(file_path))
+
         data.to_csv(file_path, index=False)
+        assert os.path.exists(file_path)
+
     except Exception as e: 
         print(e)
 
