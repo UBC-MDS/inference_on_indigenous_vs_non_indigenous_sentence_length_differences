@@ -1,6 +1,6 @@
 ---
 title: "Statistical sigginificance in the aggregate sentence lengths of indegenous vs non-indegenuous racial groups"
-author: "Mukund Iyer, Yuno Park, Rada Rudyak, Chaoran Wang "
+author: "Mukund Iyer, Kyle Ahn, Rada Rudyak, Chaoran Wang "
 date: "2021/11/26"
 always_allow_html: true
 output: 

@@ -39,6 +39,13 @@ project:
 
     # run eda on cleaned and processed data 
     python src/eda_processed_data.py --processed_data_path="./data/processed/processed_offender_profile.csv" --results_folder_path="./results"
+
+    # run hypothesis test and produce output in the results folder
+    Rscript src/hypothesis_test.r --processed_data_path="./data/processed/processed_offender_profile.csv" --results_dir_path="./results"
+
+    # run to generate final_report html and md to view
+    Rscript -e "rmarkdown::render('./doc/final_report.rmd')"
+
 ## Dependencies
 
   - Python 3.7.3 and Python packages:
@@ -50,6 +57,10 @@ project:
   - R version 3.6.1 and R packages:
       - knitr==1.26
       - docopt==0.7.1
+      - janitor==2.1.0
+      - tidyverse==1.3.1
+      - testthat==3.0.4
+      - infer==1.1.0
 
 ## License
 
