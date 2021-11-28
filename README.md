@@ -4,7 +4,7 @@ Project name: Statistical significance of indigenous vs non-indigenous racial gr
 
   - authors: Chaoran Wang, Rada Rudyak, Kyle Ahn, Mukund Iyer
  
- ## Project Proposal
+ ## Project Summary
 
 For this project we have carried out a hypothesis test to determine if there was a significant difference in the median sentence lengths between the indigenous and non-indigenous offenders under the Correction Services Canada. The median was selected as the measure of central tendency and a permutation test under the null model was carried out computationally with a significance level of 0.05. The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous offenders. The resulting sample difference in the two medians was -56 days, with a corresponding p-value of  0.0328. As this $p$-vaule was smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no statistically significant difference in the median sentence lengths between the two groups. As we had a large sample size for both groups, our model was very sensitive to small differences in the median of both groups. Though this may raise some concern regarding the practical implications of the study, we believed it was important not to miss any existing effect die to the sensitivity of the issue at hand. The cost of a Type II error is more significant than a Type I error.   
 
