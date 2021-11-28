@@ -1,8 +1,10 @@
 ---
-title: "Statistical siginificance in the aggregate sentence lengths of indigenous vs non-indigenuous racial groups"
+title: "Statistical siginificance in the aggregate sentence lengths of indigenous vs non-indigenuous offenders"
 author: "Mukund Iyer, Yuno Park, Rada Rudyak, Chaoran Wang "
 date: "2021/11/26"
 always_allow_html: true
+params: 
+  results_dir_path: '../results'
 output: 
   html_document:
     toc: true
@@ -16,9 +18,16 @@ library(kableExtra)
 library(tidyverse)
 ```  
 
+```{r hypothesis_test_objs}
+p_value <- readRDS(paste(params$results_dir_path, "/p_value.rds", sep=""))
+null_distribution_plot <- readRDS(paste(params$results_dir_path, "/null_distribution.rds", sep=""))
+ci_95 <- readRDS(paste(params$results_dir_path,"/ci_95.rds", sep=""))
+diff_medians <- readRDS(paste(params$results_dir_path, "/diff_medians.rds",  sep=""))
+```
+
 # Summary 
 
-For this project we have carried out a hypothesis test to determine if there was a significant difference in the median sentence lengths between the indigenous and non-indigenous offenders under the Correction Services Canada. The median was selected as the measure of central tendency as the distribution of sentence length for both groups were skewed. Subsequently, a permutation test under the null model was carried out computationally with a significance level of 0.05. The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous inmates. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous inmates. The resulting sample difference in the two medians was ###TEST_STATISTIC, with a corresponding p-value of ###P_VALUE. As this p-vaule wqs smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no statistically significant difference in the median jail times between the two groups. As the test was carried out using a small alpha of 0.05, it can be assumed that the chance of Type I error was small. However, as we had a large sample size for both groups, our model was very sensitive to small differences in the median of both groups. Though this may raise some concern regarding the practical implications of the study, we believed it was important not to miss any existing effect. The cost of a Type II error is more significant than a Type I error for this question.   
+For this project we have carried out a hypothesis test to determine if there was a significant difference in the median sentence lengths between the indigenous and non-indigenous offenders under the Correction Services Canada. The median was selected as the measure of central tendency as the distribution of sentence length for both groups were skewed. Subsequently, a permutation test under the null model was carried out computationally with a significance level of 0.05. The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous offenders. The resulting sample difference in the two medians was `r diff_medians`, with a corresponding p-value of `r p_value`. As this $p$-vaule was smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no statistically significant difference in the median jail times between the two groups. As the test was carried out using a small alpha of 0.05, it can be assumed that the chance of Type I error was small. However, as we had a large sample size for both groups, our model was very sensitive to small differences in the median of both groups. Though this may raise some concern regarding the practical implications of the study, we believed it was important not to miss any existing effect die to the sensitivity of the issue at hand. The cost of a Type II error is more significant than a Type I error.   
 
 # Introduction 
 
@@ -44,7 +53,7 @@ $H_0$: The median length of sentences of indigenous group, $M_1$, is equal to th
 
  Test statistic: $\hat{M}_1-\hat{M}_2$.
 
-The R [@R] and Python programming languages [@Python] and the following R and Python packages were used to perform the analysis:  docopt [@docopt],  knitr [@knitr], tidyverse [@tidyverse], infer [@infer], docopt [@docoptpython] and altair [@altair]. The code used to perform the analysis and create this report can be found here: https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences.
+The R [@R] and Python programming languages [@Python] and the following R and Python packages were used to perform the analysis:  docopt [@docopt],  knitr [@knitr], tidyverse [@tidyverse], infer [@infer], docopt [@docoptpython] and altair [@altair]. The code used to perform the analysis and create this report can be found [here](https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences).
 
 # Results and discussion 
 
@@ -53,7 +62,6 @@ The only relevant columns for our hypothesis test were the ‘aggregate sentence
 ```{r counts, inlude=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 counts <- read_csv('../results/EDA/group_counts.csv')
 ```
-
 
 All other columns were dropped. The count of observations in either group was `r counts$Count[2]` and `r format(counts$Count[1])`, meaning we had a large enough sample size to carry out a t-test.
 
@@ -68,7 +76,7 @@ To decide what kind of measure of central tendency to apply in our hypothesis te
 knitr::include_graphics('../results/EDA/eda-densities.png')
 ```
 
-Looking at the boxplot, we noted the large overlap in the confidence intervals between the two groups, which at a glance indicated that a statistically significant differene was unlikely. 
+Looking at the boxplot, we noted the large overlap in the confidence intervals between the two groups, which at a glance indicated that a statistically significant difference was unlikely. 
 
 ```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The marker at the center of the box corresponds to the median.", out.width='100%'}
 
@@ -77,27 +85,23 @@ knitr::include_graphics('../results/EDA/eda-box_plots.png')
 
 We had a large enough sample size to apply a permutation test as the toal sample size was `r format(counts$Count[1] + counts$Count[2])`. We carried out the permutation test with r N_REPEATS under the null hypothesis, computing and comparing the median for each of the two groups.
 
-The null hypothesis stated that there is no difference in the median sentence lengths between the indigenous and non-indigenous inmates. The alternate hypothesis stated that there is a difference in the median sentence lengths between the indigenous and non-indigenous populations. The test statistic was the difference in the sample medians of the two groups. The significance level was set to 0.05. 
+The null hypothesis stated that there is no difference in the median sentence lengths between the indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the median sentence lengths between the indigenous and non-indigenous populations. The test statistic was the difference in the sample medians of the two groups. The significance level was set to 0.05. 
 
 The distribution under the null hypothesis has the expected normal shape due to the sample size and number of repetitions.
 
 ```{r Null Distribution 3, fig.width=10, fig.height=3, fig.cap = "Figure 3. The distribution of the medians generated using a permutation test under the null distribution.", out.width='100%'}
-#knitr::include_graphics("")
 
+#knitr::include_graphics("../src/hypothesis_test_files/figure-gfm/hypothesis_plot-1.png")
+null_distribution_plot
 ```
 
 
-The difference in the sample test medians was ###DIFF_IN_MEANS, which corresponded to a p-value of  ###P_VALUE. Since the test statistic falls in the left tail in the distribution plot
- and the two-tailed $p$-value = 0.0328<0.05, we can conclude that given the
- significant level of $\alpha = 0.05$, there is statistically significant
- evidence that we can reject $H_0$ such that there is
- significant difference in the length of sentences between indigenous and
- non-indigenous offenders in the Correctional Services of Canada.
+The difference in the sample test medians was `r diff_medians`, which corresponded to a p-value of `r p_value` from the two-tailed test. The test statistic falls beyond in the left tail in the distribution. As the $p$-value is smaller than the significance level of 0.05, we can state that there is statistically significant evidence to reject $H_0$. Hence there is a significant difference in the sentence length of sentences between indigenous and non-indigenous offenders in the Correctional Services of Canada.
 
-Though our study discovered a statistical significance in the difference in the estimates, the practical takeaway must take into consideration the effect size, the sample size, and possible sources of error. The sample size of both groups in the study was very large, and therefore our model was very sensitive to small effects. This meant there was a high risk of committing Type II error, in which we incorrectly reject the null hypothesis. However, for this particular study, minimizing Type I error is more significant than Type II error as missing out on a difference in sentence lengths between the two groups is costly as it will curb efforts to conduct further studies on the issue. This will be detrimental to the already vulnerable indigenous population. 
+Though our study discovered a statistical significance in the difference in the estimates, the practical takeaway must take into consideration the effect size, the sample size, and possible sources of error. The sample size of both groups in the study was very large, and therefore our model was very sensitive to small effects. This meant there was a high risk of committing Type II error, in which we incorrectly reject the null hypothesis. However, for this particular study, minimizing Type I error is more significant than Type II error. Missing out on a difference in sentence lengths between the two groups is costly as it will curb efforts to conduct further studies on the issue. This will be detrimental to the already vulnerable indigenous population. 
 
 
-A follow-up study to this could combine the inmates data from multiple years to increase the sample size, and potentially conduct the hypothesis test with a larger alpha value. Additionally, a study that controls for other variables, most notably the nature of the offence, could give us better and more nuanced understanding of the the possible correlations and dynamics. 
+A follow-up study to this could combine the offenders data from multiple years to increase the sample size, and potentially conduct the hypothesis test with a larger alpha value. Additionally, a study that controls for other variables, most notably the nature of the offence, could give us better and more nuanced understanding of the the possible correlations and dynamics. 
 
 
 # References
