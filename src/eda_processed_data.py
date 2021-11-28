@@ -26,11 +26,14 @@ from docopt import docopt
 
 opt = docopt(__doc__)
 
+def test_df_rows_cols(df):
+  assert df.shape[0] > 0, "There are no observations in the provided processed data frame"
+  assert df.shape[1] > 1, "There are less that two columns in the provided processed data"
+
 def main(processed_data_path, results_folder_path):
   
   df_init = pd.read_csv(processed_data_path)
-  #df_init = pd.read_csv('processed_offender_profile.csv')
-  
+
   alt.data_transformers.disable_max_rows() #normally, altair limits it to 5K rows
   alt.renderers.enable('png')
   
@@ -43,7 +46,11 @@ def main(processed_data_path, results_folder_path):
   # Quick info confirming dtypes and no missing values. 
   # Save it to data/processed folder
   
+  #TODO: test - check if row_count != 0 - if it's 0, print err and halt script
+  #TODO: test - check if col_count !=0 - if it's 0, print err and halt script
   df_info = pd.DataFrame(df.info())
+  
+  
   filename = 'dataset_info.csv'
   dirname = results_folder_path
   
@@ -98,11 +105,12 @@ def main(processed_data_path, results_folder_path):
   # Create box plots and 
   # Save the boxplots to ~/doc/eda-box_plots.png
   
-  ratio_boxplots = alt.Chart(df).mark_boxplot().encode(
-      x = alt.X('aggregate_sentence_length', type='quantitative'),
-      y = alt.Y('race_grouping'), 
+  ratio_boxplots = alt.Chart(df).mark_boxplot(size=50).encode(
+      x = alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", type='quantitative', axis=alt.Axis(format='~s')),
+      y = alt.Y('race_grouping', title=""), 
       color = 'race_grouping'
   ).properties(
+      title = "Aggregate Sentence Length by Racial Grouping",
       height = 350,
       width = 800
   )
@@ -131,9 +139,11 @@ def main(processed_data_path, results_folder_path):
       opacity=0.5,
       clip=True
   ).encode(
-      x=alt.X('aggregate_sentence_length', scale=alt.Scale(domain=[700, 5000])),
-      y='density:Q',
+      x=alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", scale=alt.Scale(domain=[700, 5000]), axis=alt.Axis(format='~s')),
+      y=alt.Y('density:Q', title=""),
       color='race_grouping'
+  ).properties(
+      title = "Aggregate Sentence Length by Racial Grouping"
   )
   
   filename = 'eda-densities.png'
