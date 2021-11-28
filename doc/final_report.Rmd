@@ -1,6 +1,6 @@
 ---
 title: "Statistical siginificance in the aggregate sentence lengths of indigenous vs non-indigenuous offenders"
-author: "Mukund Iyer, Yuno Park, Rada Rudyak, Chaoran Wang "
+author: "Mukund Iyer, Kyle Ahn, Rada Rudyak, Chaoran Wang "
 date: "2021/11/26"
 always_allow_html: true
 params: 
@@ -68,6 +68,8 @@ All other columns were dropped. The count of observations in either group was `r
 ```{r observations_group}
 knitr::kable(counts, caption = "Table 1. Number of observations in each group.", col.names = c("Group",
                            "Count of Offenders"))
+
+                
 ```
 <br />
 To decide what kind of measure of central tendency to apply in our hypothesis test, we looked at the distribution of the sentence lengths of either group (orange - non-indigenous, blue - indigenous) using a density plot. The distributions for both groups were right skewed, so we decided to use the median as our parameter as it is less affected by the outliers. 
