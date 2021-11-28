@@ -9,6 +9,7 @@ Options:
 library(tidyverse)
 library(docopt)
 library(janitor)
+library(testthat)
 
 set.seed(2020)
 
@@ -23,16 +24,24 @@ main <- function(raw_data_path, processed_dir_path) {
     try({
         dir.create(processed_dir_path, showWarnings = FALSE)
     })
-    
+
     processed_data <- raw_data |> clean_names() |>
       filter(sentence_type == "DETERMINATE") |>
       select(race_grouping, aggregate_sentence_length)
 
-    z <- paste(processed_dir_path, "/processed_offender_profile.csv", sep = "")
-    print(z)
+    processed_data_path <- paste(
+        processed_dir_path,
+        "/processed_offender_profile.csv",
+        sep = ""
+    )
+
     write.csv(
         processed_data,
-        paste(processed_dir_path, "/processed_offender_profile.csv", sep = "")
+        processed_data_path
+    )
+    expect_true(
+        file.exists(processed_data_path),
+        paste(processed_data_path, "does not exist.")
     )
 }
 

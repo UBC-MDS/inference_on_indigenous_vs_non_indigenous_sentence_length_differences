@@ -45,8 +45,6 @@ def main(processed_data_path, results_folder_path):
   # Quick info confirming dtypes and no missing values. 
   # Save it to data/processed folder
   
-  #TODO: test - check if row_count != 0 - if it's 0, print err and halt script
-  #TODO: test - check if col_count !=0 - if it's 0, print err and halt script
   df_info = pd.DataFrame(df.info())
   
   
