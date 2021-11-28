@@ -33,7 +33,6 @@ def test_df_rows_cols(df):
 def main(processed_data_path, results_folder_path):
   
   df_init = pd.read_csv(processed_data_path)
-
   alt.data_transformers.disable_max_rows() #normally, altair limits it to 5K rows
   alt.renderers.enable('png')
   
