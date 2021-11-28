@@ -6,20 +6,15 @@ Project name: Statistical significance of indigenous vs non-indigenous racial gr
  
  ## Project Proposal
 
-For this project, we will infer if there is a statistically significant difference in the length of sentences of indegenous and non-indegenous offenders in the Correctional Services of Canada. Having an impartial law system is paramount in any society, and this study will explore any biases in sentencing based on racial grouping. In general, the number of indegenous incarceration has increased by 40% in the prison system over the last decade, a faster rate than any other group (Owusu-Bempah A, Kanters S, Druyts E). It will be important to see if such differences also exist in the length of the sentence. 
+For this project we have carried out a hypothesis test to determine if there was a significant difference in the median sentence lengths between the indigenous and non-indigenous offenders under the Correction Services Canada. The median was selected as the measure of central tendency and a permutation test under the null model was carried out computationally with a significance level of 0.05. The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous offenders. The resulting sample difference in the two medians was -56 days, with a corresponding p-value of  0.0328. As this $p$-vaule was smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no statistically significant difference in the median sentence lengths between the two groups. As we had a large sample size for both groups, our model was very sensitive to small differences in the median of both groups. Though this may raise some concern regarding the practical implications of the study, we believed it was important not to miss any existing effect die to the sensitivity of the issue at hand. The cost of a Type II error is more significant than a Type I error.   
 
-The data set used for this study is the Offender Profile from 2017-2018 released by the Correctional Service of Canada. The link to this site can be found [here](https://open.canada.ca/data/en/dataset/844ff1e3-e137-41be-9ebe-6bd9843c1a53). Each entry in the dataset corresponds to a single offender serving a two or more year long sentence. The demographic details such as age, gender and marital status at year end are provided for each entry. This was retrieved from the Offender Management System (OMS).
+The data set used for this study is the Offender Profile from 2017-2018 released by the Correctional Service of Canada. The link to this site can be found [here](https://open.canada.ca/data/en/dataset/844ff1e3-e137-41be-9ebe-6bd9843c1a53). Each entry in the data set corresponds to a single offender serving a two or more year long sentence. The demographic details such as age, gender and marital status at year end are provided for each entry. This was retrieved from the Offender Management System (OMS).
 
-The inferential question above will be answered using a hypothesis test with a significance level of 0.05. The null hypothesis will state that there is no difference in the population parameter that we choose to test between the indegenous and non-indegenous groups. The alternate hypothesis will state that there is a difference in the population parameter we choose to test between the indegenous and non-indegenous groups. 
-
-Initially, the analysis will involve exploratory data analysis, where we will use tables that summarize the data. This will tell us how many groups there are under the race column and the sample size. If there are more than two groups, we will need to group all the non-indegenous races together. Then, we will view the distribution of the sentence length for either group using a density plot as the shape of the distribution will dictate the test statistic we use and subsequently the flavor of the statistical test. If the distributions follow a normal distribution, and if we have more than 30 samples in each group, then we can test the difference in means using a student's t-test. However, if the distribution is skewed, then we will test the difference in medians using a permutation test under the null hypothesis computationally. The median can be examined as it is less affected by outliers.
-
-The final evaluation will be completed by obtaining the p-value based on the effect size for our samples and comparing it to our significance level. If the p-value is smaller than the significance level, we can claim that there is enough statistical evidence to reject the null hypothesis. The null distribution and test statistic will presented as a figure, and the p-value and effect size in a table. Whilst evaluating our findings, we will need to consider the power of the test based on the sample size and the magnitude of the effect we observed. The preliminary EDA can be found in this [file](https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/src/EDA.ipynb).
 
 ## Report
 
 The final report can be found
-[here](Final Report URL).
+[here](https://github.com/miyer26/DSCI_522_Group5_namepending/blob/main/doc/final_report.Rmd).
 
 ## Usage
 
@@ -29,16 +24,14 @@ commands in the command line/terminal from the root directory of this sequential
 project:
 
     # download data
-    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="./data/raw/offender_profile.csv"
+    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="../data/raw/offender_profile.csv".csv" --file_path="./data/raw/offender_profile.csv"
     
     # run eda report and save it as PDF in src folder
     jupyter nbconvert --to pdf --execute "src/eda_offender_profile_raw_data.ipynb"
 
-    # run clean_offender_profile_raw_data.r to clean and process the data for EDA and hypothesis testing
-    Rscript src/clean_offender_profile_raw_data.r --raw_data_path="./data/raw/offender_profile.csv" --processed_dir_path="./data/processed"
+    # run sample-docopt.R (To be removed)
+    Rscript src/sample-docopt.r --raw_data_path="./data/raw/offender_profile.csv" --processed_dir_path="./data/processed"
 
-    # run eda on cleaned and processed data 
-    python src/eda_processed_data.py --processed_data_path="./data/processed/processed_offender_profile.csv" --results_folder_path="./results"
 ## Dependencies
 
   - Python 3.7.3 and Python packages:
