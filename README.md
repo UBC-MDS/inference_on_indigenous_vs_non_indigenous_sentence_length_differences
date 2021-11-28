@@ -50,6 +50,9 @@ project:
   - R version 3.6.1 and R packages:
       - knitr==1.26
       - docopt==0.7.1
+      - janitor==2.1.0
+      - tidyverse==1.3.1
+      - testthat==3.0.4
 
 ## License
 
