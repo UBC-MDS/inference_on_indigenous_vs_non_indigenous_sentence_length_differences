@@ -14,7 +14,7 @@ The data set used for this study is the Offender Profile from 2017-2018 released
 ## Report
 
 The final report can be found
-[here](https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/final_report.Rmd).
+[here](https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
 
 ## Usage
 
@@ -56,6 +56,7 @@ project:
       - tidyverse==1.3.1
       - testthat==3.0.4
       - infer==1.1.0
+      - kableExtra==1.3.4
 
 ## License
 
