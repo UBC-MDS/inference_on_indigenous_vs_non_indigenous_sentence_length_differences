@@ -9,7 +9,6 @@
 # example usage: 
 # make doc/sentence_length_diffs_inference_report.html
 
-#all: data/raw/offender_profile.csv
 
 #download the data 
 data/raw/offender_profile.csv : src/download_data.py
@@ -32,8 +31,8 @@ results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results
 	Rscript src/hypothesis_test.r --processed_data_path="./data/processed/processed_offender_profile.csv" --results_dir_path="./results"
 
 # run to generate sentence_length_diffs_inference_report html and md to view
-doc/sentence_length_diffs_inference_report.rmd : results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results/p_value.rds results/eda-densities.png results/eda-box_plots.png results/basic_summary_table.csv results/group_counts.csv dataset_info.csv
-	Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
+#doc/sentence_length_diffs_inference_report.rmd : results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results/p_value.rds results/eda-densities.png results/eda-box_plots.png results/basic_summary_table.csv results/group_counts.csv dataset_info.csv
+	#Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
 
 #clean all files in results and the 
 clean :
