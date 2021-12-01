@@ -60,7 +60,7 @@ project:
 
 ## License
 
-The Breast Cancer Predictor materials here are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
+The 'Inference on Indigenous and Non-Indigenous Sentence Lengths'  materials here are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
 
 # References 
 
