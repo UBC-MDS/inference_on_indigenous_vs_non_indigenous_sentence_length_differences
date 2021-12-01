@@ -14,7 +14,7 @@ The data set used for this study is the Offender Profile from 2017-2018 released
 ## Report
 
 The final report can be found
-[here](https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
+[here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
 
 ## Usage
 
@@ -24,7 +24,7 @@ commands in the command line/terminal from the root directory of this sequential
 project:
 
     # download data
-    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="../data/raw/offender_profile.csv".csv" --file_path="./data/raw/offender_profile.csv"
+    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="./data/raw/offender_profile.csv"
     
     # run eda report and save it as PDF in src folder
     jupyter nbconvert --to pdf --execute "src/eda_offender_profile_raw_data.ipynb"
