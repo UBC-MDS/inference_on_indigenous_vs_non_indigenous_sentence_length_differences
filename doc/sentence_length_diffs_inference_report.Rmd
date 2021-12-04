@@ -21,7 +21,7 @@ library(tidyverse)
 ```{r hypothesis_test_objs}
 p_value <- readRDS(paste(params$results_dir_path, "/p_value.rds", sep=""))
 null_distribution_plot <- readRDS(paste(params$results_dir_path, "/null_distribution.rds", sep=""))
-ci_95 <- readRDS(paste(params$results_dir_path,"/ci_95.rds", sep=""))
+ci_95 <- readRDS(paste(params$results_dir_path, "/ci_95.rds", sep=""))
 diff_medians <- readRDS(paste(params$results_dir_path, "/diff_medians.rds",  sep=""))
 ```
 
