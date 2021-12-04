@@ -2,19 +2,23 @@
 
 Project name: Statistical significance of indigenous vs non-indigenous racial grouping as a factor in determining aggregated sentence length in Canada?
 
-  - authors: Chaoran Wang, Rada Rudyak, Kyle Ahn, Mukund Iyer
- 
- ## Project Summary
+-   authors: Chaoran Wang, Rada Rudyak, Kyle Ahn, Mukund Iyer
 
-For this project we have carried out a hypothesis test to determine if there was a significant difference in the median sentence lengths between the indigenous and non-indigenous offenders under the Correction Services Canada. The median was selected as the measure of central tendency and a permutation test under the null model was carried out computationally with a significance level of 0.05. The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous offenders. The resulting sample difference in the two medians was -56 days, with a corresponding p-value of  0.0328. The indigenous group was found to have shorter sentence lengths than the non-indigenous group. As this p-vaule was smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no statistically significant difference in the median sentence lengths between the two groups. As we had a large sample size for both groups, our model was very sensitive to small differences in the median of both groups. Though this may raise some concern regarding the practical implications of the study, we believed it was important not to miss any existing effect due to the sensitivity of the issue at hand. The cost of a Type II error is more significant than a Type I error.   
+## Project Summary
 
-The data set used for this study is the Offender Profile from 2017-2018 released by the Correctional Service of Canada. The link to this site can be found [here](https://open.canada.ca/data/en/dataset/844ff1e3-e137-41be-9ebe-6bd9843c1a53). Each entry in the data set corresponds to a single offender serving a two or more year long sentence. The demographic details such as age, gender and marital status at year end are provided for each entry. This was retrieved from the Offender Management System (OMS).
+For this project we have carried out a hypothesis test to determine if there was a significant difference in the median sentence lengths between the indigenous and non-indigenous offenders under the Correction Services Canada. The median was selected as the measure of central tendency and a permutation test under the null model was carried out computationally with a significance level of **0.05**.
 
+The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous offenders. At the EDA stage, we presented two visualizations comparing the sentence lengths for both groups: density plot and box plot.
+
+At the hypothesis test, we identified the difference in the two medians of **-56 days**, with a corresponding *p-value* of **0.0328**. The indigenous group was found to have shorter sentence lengths than the non-indigenous group. As this p-value was smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no difference in the median sentence lengths between the two groups. Considering the large sample size, there is a small chance that the result is affected by the Type II error. However, we have to be mindful of the small effect size. This may raise some concern regarding the practical implications of the study, but we believed it was important not to miss any existing effect. We concluded that in our case, minimizing Type II error was more important than Type I error.
+
+In the final report, we included the quantitative results of hypothesis test as well as the visualization of the distribution of differences in means.
+
+The data set used for this study is the Offender Profile from 2017-2018 released by the Correctional Service of Canada. The link to this site can be found [here](https://open.canada.ca/data/en/dataset/844ff1e3-e137-41be-9ebe-6bd9843c1a53). Each entry in the data set corresponds to a single offender serving a two or more year long sentence. The demographic details such as age, gender and marital status at year end are provided for each entry. This was retrieved from the Offender Management System (OMS). For the purposes of our inquiry, we dropped all columns except the racial grouping and the aggregated sentence length.
 
 ## Report
 
-The final report can be found
-[here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
+The final report, including quantitative analysis and visual figures, can be found [here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
 
 ## Usage
 
@@ -50,9 +54,8 @@ root directory of this project:
 
 ## License
 
-The 'Inference on Indigenous and Non-Indigenous Sentence Lengths'  materials here are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
+The 'Inference on Indigenous and Non-Indigenous Sentence Lengths' materials here are licensed under the MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
 
-# References 
+# References
 
 Owusu-Bempah, A., Kanters, S., Druyts, E. et al. Years of life lost to incarceration: inequities between Aboriginal and non-Aboriginal Canadians. BMC Public Health 14, 585 (2014). [https://doi.org/10.1186/1471-2458-14-585](https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-14-585)
-

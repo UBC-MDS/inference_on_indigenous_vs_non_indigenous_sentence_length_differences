@@ -1,13 +1,13 @@
 # 
-# Mukund Iyer, Dec 2021
+# Mukund Iyer & Kyle Ahn, Dec 2021
 
 # This is a driver script that completes the inferential study on the 
 # difference in median sentence length of indigenous vs non-indigenous inmates. 
-# This script will take no input arguments. It also has a 'clear' call to clear
-# the directory.
+# This script will take no input arguments. It two calls, 'clear' to clear
+# the directory, and 'all' to run the whole analysis from top to bottom.
 
 # example usage: 
-# make doc/sentence_length_diffs_inference_report.html
+# make all
 
 all: data/raw/offender_profile.csv src/eda_offender_profile_raw_data.ipynb data/processed/processed_offender_profile.csv results/eda-densities.png results/eda-box_plots.png results/basic_summary_table.csv results/group_counts.csv dataset_info.csv results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results/p_value.rds doc/sentence_length_diffs_inference_report.html
 
@@ -35,7 +35,7 @@ results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results
 doc/sentence_length_diffs_inference_report.html: results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results/p_value.rds results/eda-densities.png results/eda-box_plots.png results/basic_summary_table.csv results/group_counts.csv dataset_info.csv
 	Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
 
-#clean all files in results and the 
+#clean all the intermediate files in data, doc, and results folder.
 clean:
 	rm -f data/raw/*.csv
 	rm -f data/processed/*.csv
