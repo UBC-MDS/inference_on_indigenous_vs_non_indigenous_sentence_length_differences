@@ -10,7 +10,7 @@ For this project we have carried out a hypothesis test to determine if there was
 
 The null hypothesis stated that there was no difference in the population medians in sentence length between indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the population medians in sentence length between indigenous and non-indigenous offenders. At the EDA stage, we presented two visualizations comparing the sentence lengths for both groups: density plot and box plot.
 
-At the hypothesis test, we identified the difference in the two medians of **-56 days**, with a corresponding *p-value* of **0.0328**. The indigenous group was found to have shorter sentence lengths than the non-indigenous group. As this p-value was smaller than the significance level, therefore there was statistically significant evidence to reject the null hypothesis that stated that there is no difference in the median sentence lengths between the two groups. Considering the large sample size, there is a small chance that the result is affected by the Type II error. However, we have to be mindful of the small effect size. This may raise some concern regarding the practical implications of the study, but we believed it was important not to miss any existing effect. We concluded that in our case, minimizing Type II error was more important than Type I error.
+At the hypothesis test, we identified the difference in the two medians of **-56 days**, with a corresponding *p-value* of **0.0328**. The indigenous group was found to have shorter sentence lengths than the non-indigenous group. As this p-value was smaller than the significance level, there was statistically significant evidence to reject the null hypothesis that stated that there is no difference in the median sentence lengths between the two groups. Considering the large sample size, there is a small chance that the result is affected by the Type II error. However, we have to be mindful of the small effect size. This may raise some concern regarding the practical implications of the study, but we believed it was important not to miss any existing effect. We concluded that in our case, minimizing Type II error was more important than Type I error.
 
 In the final report, we included the quantitative results of hypothesis test as well as the visualization of the distribution of differences in means.
 
@@ -42,7 +42,7 @@ To replicate the analysis, clone this GitHub repository, ensure you have install
     # run to generate sentence_length_diffs_inference_report html and md to view
     Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
 
-## Dependencies
+## Dependencies {#dependencies}
 
 -   Python 3.7.3 and Python packages:
 
