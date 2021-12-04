@@ -38,25 +38,25 @@ test_output <- function(dir_path) {
     #'
     #' @examples
     #' test_output("./data_folder")
-  p_value_file <- paste(dir_path, "/p_value.rds")
+  p_value_file <- paste(dir_path, "/p_value.rds", sep = "")
   expect_true(
     file.exists(p_value_file),
     paste(p_value_file, "does not exist.")
   )
 
-  null_distribution_file <- paste(dir_path, "/null_distribution.rds")
+  null_distribution_file <- paste(dir_path, "/null_distribution.rds", sep = "")
   expect_true(
     file.exists(null_distribution_file),
     paste(null_distribution_file, "does not exist.")
   )
 
-  ci_95_file <- paste(dir_path, "/ci_95.rds")
+  ci_95_file <- paste(dir_path, "/ci_95.rds", sep = "")
   expect_true(
     file.exists(ci_95_file),
     paste(ci_95_file, "does not exist.")
   )
 
-  diff_means_file <- paste(dir_path, "/diff_medians.rds")
+  diff_means_file <- paste(dir_path, "/diff_medians.rds", sep = "")
   expect_true(
     file.exists(diff_means_file),
     paste(diff_means_file, "does not exist.")
