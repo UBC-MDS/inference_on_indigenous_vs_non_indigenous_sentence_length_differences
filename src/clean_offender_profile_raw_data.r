@@ -1,4 +1,4 @@
-"Cleans, splits and pre-processes offender profile data from http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv.
+"Cleans and pre-processes offender profile data from http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv.
 Usage: src/sample_docopt.r --raw_data_path=<raw_data_path> --processed_dir_path=<processed_dir_path>
   
 Options:
@@ -11,6 +11,7 @@ library(docopt)
 library(janitor)
 library(testthat)
 
+# don't change the seed for reproduceability purposes
 set.seed(2020)
 
 opt <- docopt(doc)
