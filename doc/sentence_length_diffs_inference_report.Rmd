@@ -21,7 +21,7 @@ library(tidyverse)
 ```{r hypothesis_test_objs}
 p_value <- readRDS(paste(params$results_dir_path, "/p_value.rds", sep=""))
 null_distribution_plot <- readRDS(paste(params$results_dir_path, "/null_distribution.rds", sep=""))
-ci_95 <- readRDS(paste(params$results_dir_path,"/ci_95.rds", sep=""))
+ci_95 <- readRDS(paste(params$results_dir_path, "/ci_95.rds", sep=""))
 diff_medians <- readRDS(paste(params$results_dir_path, "/diff_medians.rds",  sep=""))
 ```
 
@@ -97,8 +97,8 @@ The distribution under the null hypothesis had the anticipated normal shape due 
 
 ```{r Null Distribution 3, fig.width=10, fig.height=3, fig.cap = "Figure 3. The distribution of the medians generated using a permutation test under the null distribution.", out.width='100%'}
 
-#knitr::include_graphics("../src/hypothesis_test_files/figure-gfm/hypothesis_plot-1.png")
 null_distribution_plot
+
 ```
 
 The difference in the sample test medians was `r diff_medians`, which corresponded to a p-value of `r p_value` from the two-tailed test. The test statistic falls beyond in the left tail in the distribution. As the $p$-value is smaller than the significance level of **0.05**, we can state that there is statistically significant evidence to reject $H_0$. Hence there is a significant difference in the sentence length of sentences between indigenous and non-indigenous offenders in the Correctional Services of Canada.
