@@ -116,7 +116,7 @@ def main(processed_data_path, results_folder_path):
     ratio_boxplots = alt.Chart(df).mark_boxplot(size=50).encode(
         x = alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", type='quantitative', axis=alt.Axis(format='~s')),
         y = alt.Y('race_grouping', title=""), 
-        color = 'race_grouping'
+        color = alt.Color('race_grouping', "Race Grouping")
     ).properties(
         title = "Aggregate Sentence Length by Racial Grouping",
         height = 350,
@@ -149,7 +149,7 @@ def main(processed_data_path, results_folder_path):
     ).encode(
         x=alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", scale=alt.Scale(domain=[700, 5000]), axis=alt.Axis(format='~s')),
         y=alt.Y('density:Q', title=""),
-        color='race_grouping'
+        color=alt.Color('race_grouping', "Race Grouping")
     ).properties(
         title = "Aggregate Sentence Length by Racial Grouping"
     )
