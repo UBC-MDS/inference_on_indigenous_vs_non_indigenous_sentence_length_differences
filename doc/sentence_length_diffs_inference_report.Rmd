@@ -82,7 +82,7 @@ knitr::include_graphics('../results/eda-densities.png')
 
 Looking at the box plots, we noted the large overlap in the confidence intervals between the two groups, which at a glance indicated that a statistically significant difference was unlikely.
 
-```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The marker at the center of the box corresponds to the median.", out.width='100%'}
+```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The whiskers of the box plot represent the range 1.5*IQR above the upper-quartile and below the lower-quartile. The marker at the center of the box corresponds to the median.", out.width='100%'}
 
 knitr::include_graphics('../results/eda-box_plots.png')
 ```
@@ -93,7 +93,7 @@ The null hypothesis stated that there is no difference in the median sentence le
 
 The distribution under the null hypothesis had the anticipated normal shape due to the provided large sample size and number of repetitions. It appeared slightly left-skewed.
 
-```{r Null Distribution 3, fig.width=10, fig.height=3, fig.cap = "Figure 3. The distribution of the medians generated using a permutation test under the null distribution. The observed statistic falls out of the 95% CI which means we can reject the H0 at the significance level of 0.05.", out.width='100%'}
+```{r Null Distribution 3, fig.width=10, fig.height=3, fig.cap = "Figure 3. The distribution of the medians generated using a permutation test under the null distribution. The observed difference in means (-56 days) falls outside of the 95% CI which means we can reject the H0 at the significance level of 0.05.", out.width='100%'}
 
 null_distribution_plot
 
