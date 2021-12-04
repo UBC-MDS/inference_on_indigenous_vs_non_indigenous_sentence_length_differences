@@ -9,7 +9,7 @@
 # example usage: 
 # make all
 
-all: data/raw/offender_profile.csv src/eda_offender_profile_raw_data.ipynb data/processed/processed_offender_profile.csv results/eda-densities.png results/eda-box_plots.png results/basic_summary_table.csv results/group_counts.csv dataset_info.csv results/ci_95.rds results/diff_medians.rds results/null_distribution.rds results/p_value.rds doc/sentence_length_diffs_inference_report.html
+all: doc/sentence_length_diffs_inference_report.html
 
 #download the data 
 data/raw/offender_profile.csv: src/download_data.py
