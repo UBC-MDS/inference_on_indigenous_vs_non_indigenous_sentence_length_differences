@@ -1,4 +1,5 @@
 "Runs the hypothesis test for the dataset and computes the p-value, test statistic and plots the null-distribution.
+Saves results into rds files for references in the final repoer.
 Usage: src/hypothesis_test.r --processed_data_path=<processed_data_path> --results_dir_path=<results_path>
   
 Options:
@@ -38,6 +39,8 @@ test_output <- function(dir_path) {
     #'
     #' @examples
     #' test_output("./data_folder")
+  
+  # ensure we have files to save our figures and variables for reference
   p_value_file <- paste(dir_path, "/p_value.rds", sep = "")
   expect_true(
     file.exists(p_value_file),
@@ -79,6 +82,7 @@ main <- function(processed_data_path, results_dir_path) {
               order = c("Indigenous", "Non Indigenous"))
 
   # null distribution by permutation test
+  # don't change the seed for reproduceability purposes
   set.seed(2021)
   null_distribution <- processed_offender |>
     specify(formula = aggregate_sentence_length ~ race_grouping) |>
@@ -105,6 +109,7 @@ main <- function(processed_data_path, results_dir_path) {
   p_value <- null_distribution |>
     get_pvalue(obs_stat = diff_medians, direction = "two_sided")
 
+  # save created variables and figures for reference in the report file
   saveRDS(p_value, paste(results_dir_path,"/p_value.rds", sep = ""))
   saveRDS(null_distribution_plot, paste(results_dir_path,"/null_distribution.rds", sep = ""))
   saveRDS(ci_95, paste(results_dir_path, "/ci_95.rds", sep = ""))
