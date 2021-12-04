@@ -82,7 +82,7 @@ main <- function(processed_data_path, results_dir_path) {
               order = c("Indigenous", "Non Indigenous"))
 
   # null distribution by permutation test
-  # don't change the seed for reproduceability purposes
+  # don't change the seed for reproducibility purposes
   set.seed(2021)
   null_distribution <- processed_offender |>
     specify(formula = aggregate_sentence_length ~ race_grouping) |>
@@ -110,8 +110,8 @@ main <- function(processed_data_path, results_dir_path) {
     get_pvalue(obs_stat = diff_medians, direction = "two_sided")
 
   # save created variables and figures for reference in the report file
-  saveRDS(p_value, paste(results_dir_path,"/p_value.rds", sep = ""))
-  saveRDS(null_distribution_plot, paste(results_dir_path,"/null_distribution.rds", sep = ""))
+  saveRDS(p_value, paste(results_dir_path, "/p_value.rds", sep = ""))
+  saveRDS(null_distribution_plot, paste(results_dir_path, "/null_distribution.rds", sep = ""))
   saveRDS(ci_95, paste(results_dir_path, "/ci_95.rds", sep = ""))
   saveRDS(diff_medians, paste(results_dir_path, "/diff_medians.rds", sep = ""))
   test_output(results_dir_path)
