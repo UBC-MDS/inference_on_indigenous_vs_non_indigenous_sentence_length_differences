@@ -9,14 +9,14 @@
 # example usage: 
 # make all
 
-all: doc/sentence_length_diffs_inference_report.html
+all: src/eda_offender_profile_raw_data.pdf doc/sentence_length_diffs_inference_report.html
 
 #download the data 
 data/raw/offender_profile.csv: src/download_data.py
 	python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="./data/raw/offender_profile.csv"
 
 # run eda report and save it as PDF in src folder
-src/eda_offender_profile_raw_data.ipynb:
+src/eda_offender_profile_raw_data.pdf:
 	jupyter nbconvert --to pdf --execute "src/eda_offender_profile_raw_data.ipynb"
     
 # run clean_offender_profile_raw_data.r to clean and process the data for EDA and hypothesis testing
