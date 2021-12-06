@@ -1,0 +1,391 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Owusu-Bempah",
+                    "given": "Akwasi"
+                },
+                {
+                    "family": "Kanters",
+                    "given": "Steve"
+                },
+                {
+                    "family": "Druyts",
+                    "given": "Eric"
+                },
+                {
+                    "family": "Toor",
+                    "given": "Kabirraaj"
+                },
+                {
+                    "family": "Muldoon",
+                    "given": "Katherine A"
+                },
+                {
+                    "family": "Farquhar",
+                    "given": "John W"
+                },
+                {
+                    "family": "Mills",
+                    "given": "Edward J"
+                }
+            ],
+            "container-title": "BMC Public Health",
+            "id": "owusu2014years",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "1-6",
+            "publisher": "Springer",
+            "title": "Years of life lost to incarceration: Inequities between aboriginal and non-aboriginal canadians",
+            "title-short": "Years of life lost to incarceration",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "author": [
+                {
+                    "family": "Freudenberg",
+                    "given": "Nicholas"
+                }
+            ],
+            "container-title": "Journal of Urban Health",
+            "id": "freudenberg2001jails",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "page": "214-235",
+            "publisher": "Springer",
+            "title": "Jails, prisons, and the health of urban populations: A review of the impact of the correctional system on community health",
+            "title-short": "Jails, prisons, and the health of urban populations",
+            "type": "article-journal",
+            "volume": "78"
+        },
+        {
+            "URL": "https://www.R-project.org/",
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "R",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "publisher": "R Foundation for Statistical Computing",
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A language and environment for statistical computing",
+            "title-short": "R",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=docopt",
+            "author": [
+                {
+                    "family": "Jonge",
+                    "given": "Edwin",
+                    "non-dropping-particle": "de"
+                }
+            ],
+            "id": "docopt",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "note": "R package version 0.7.1",
+            "title": "Docopt: Command-line interface specification language",
+            "title-short": "Docopt",
+            "type": "book"
+        },
+        {
+            "URL": "https://yihui.org/knitr/",
+            "author": [
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "id": "knitr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.33",
+            "title": "Knitr: A general-purpose package for dynamic report generation in r",
+            "title-short": "Knitr",
+            "type": "book"
+        },
+        {
+            "DOI": "10.21105/joss.01686",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "Averick",
+                    "given": "Mara"
+                },
+                {
+                    "family": "Bryan",
+                    "given": "Jennifer"
+                },
+                {
+                    "family": "Chang",
+                    "given": "Winston"
+                },
+                {
+                    "family": "McGowan",
+                    "given": "Lucy D’Agostino"
+                },
+                {
+                    "family": "François",
+                    "given": "Romain"
+                },
+                {
+                    "family": "Grolemund",
+                    "given": "Garrett"
+                },
+                {
+                    "family": "Hayes",
+                    "given": "Alex"
+                },
+                {
+                    "family": "Henry",
+                    "given": "Lionel"
+                },
+                {
+                    "family": "Hester",
+                    "given": "Jim"
+                },
+                {
+                    "family": "Kuhn",
+                    "given": "Max"
+                },
+                {
+                    "family": "Pedersen",
+                    "given": "Thomas Lin"
+                },
+                {
+                    "family": "Miller",
+                    "given": "Evan"
+                },
+                {
+                    "family": "Bache",
+                    "given": "Stephan Milton"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Kirill"
+                },
+                {
+                    "family": "Ooms",
+                    "given": "Jeroen"
+                },
+                {
+                    "family": "Robinson",
+                    "given": "David"
+                },
+                {
+                    "family": "Seidel",
+                    "given": "Dana Paige"
+                },
+                {
+                    "family": "Spinu",
+                    "given": "Vitalie"
+                },
+                {
+                    "family": "Takahashi",
+                    "given": "Kohske"
+                },
+                {
+                    "family": "Vaughan",
+                    "given": "Davis"
+                },
+                {
+                    "family": "Wilke",
+                    "given": "Claus"
+                },
+                {
+                    "family": "Woo",
+                    "given": "Kara"
+                },
+                {
+                    "family": "Yutani",
+                    "given": "Hiroaki"
+                }
+            ],
+            "container-title": "Journal of Open Source Software",
+            "id": "tidyverse",
+            "issue": "43",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "1686",
+            "title": "Welcome to the tidyverse",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "ISBN": "1441412697",
+            "author": [
+                {
+                    "family": "Van Rossum",
+                    "given": "Guido"
+                },
+                {
+                    "family": "Drake",
+                    "given": "Fred L."
+                }
+            ],
+            "id": "Python",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "publisher": "CreateSpace",
+            "publisher-place": "Scotts Valley, CA",
+            "title": "Python 3 reference manual",
+            "type": "book"
+        },
+        {
+            "URL": "https://github.com/docopt/docopt",
+            "author": [
+                {
+                    "family": "Keleshev",
+                    "given": "Vladimir"
+                }
+            ],
+            "id": "docoptpython",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "note": "Python package version 0.6.2",
+            "title": "Docopt: Command-line interface description language",
+            "title-short": "Docopt",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=infer",
+            "author": [
+                {
+                    "family": "Bray",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Ismay",
+                    "given": "Chester"
+                },
+                {
+                    "family": "Chasnovski",
+                    "given": "Evgeni"
+                },
+                {
+                    "family": "Couch",
+                    "given": "Simon"
+                },
+                {
+                    "family": "Baumer",
+                    "given": "Ben"
+                },
+                {
+                    "family": "Cetinkaya-Rundel",
+                    "given": "Mine"
+                }
+            ],
+            "id": "infer",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.0.0",
+            "title": "Infer: Tidy statistical inference",
+            "title-short": "Infer",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "McKinney",
+                    "given": "Wes"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Proceedings of the 9th python in science conference",
+            "id": "mckinney2010data",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "page": "51-56",
+            "publisher": "Austin, TX",
+            "title": "Data structures for statistical computing in python",
+            "type": "paper-conference",
+            "volume": "445"
+        },
+        {
+            "URL": "http://idl.cs.washington.edu/papers/altair",
+            "author": [
+                {
+                    "family": "Sievert",
+                    "given": "Jacob VanderPlas AND Brian E. Granger AND Jeffrey Heer AND Dominik Moritz AND Kanit Wongsuphasawat AND Arvind Satyanarayan AND Eitan Lees AND Ilia Timofeev AND Ben Welsh AND Scott"
+                }
+            ],
+            "container-title": "The Journal of Open Source Software",
+            "id": "altair",
+            "issue": "32",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Altair: Interactive statistical visualizations for python",
+            "title-short": "Altair",
+            "type": "article-journal",
+            "volume": "3"
+        }
+    ],
+    "project_biblios": []
+}
