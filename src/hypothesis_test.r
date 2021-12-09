@@ -102,9 +102,9 @@ main <- function(processed_data_path, results_dir_path) {
     shade_confidence_interval(endpoints = ci_95, alpha = 0.2) + 
     labs(
         x = "Difference in medians of indigenous vs. non indigenous offenders",
-        y = "Count",
-        subtitle = "Red line shows observed difference in medians with 95% CI shaded"
-    ) + theme_bw()
+        y = "Count"
+    ) + theme_bw() +
+    annotate("text", x=-75, y=750, color="Red", label= "Observed difference in medians")
 
   p_value <- null_distribution |>
     get_pvalue(obs_stat = diff_medians, direction = "two_sided")
