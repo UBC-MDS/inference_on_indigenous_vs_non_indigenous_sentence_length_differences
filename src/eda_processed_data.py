@@ -148,10 +148,12 @@ def main(processed_data_path, results_folder_path):
         clip=True
     ).encode(
         x=alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", scale=alt.Scale(domain=[700, 5000]), axis=alt.Axis(format='~s')),
-        y=alt.Y('density:Q', title=""),
+        y=alt.Y('density:Q', title="", axis=alt.Axis(labels=False)),
         color=alt.Color('race_grouping', title="Race Grouping")
     ).properties(
-        title = "Aggregate Sentence Length by Racial Grouping"
+        title = "Aggregate Sentence Length by Racial Grouping: Density Plot",
+        height = 350,
+        width = 800
     )
     
     filename = 'eda-densities.png'

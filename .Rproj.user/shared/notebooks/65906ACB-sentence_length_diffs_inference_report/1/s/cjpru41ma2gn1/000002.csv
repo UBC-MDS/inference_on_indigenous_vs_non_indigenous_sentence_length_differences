@@ -1,0 +1,4 @@
+"0","p_value <- readRDS(paste(params$results_dir_path, ""/p_value.rds"", sep=""""))"
+"0","null_distribution_plot <- readRDS(paste(params$results_dir_path, ""/null_distribution.rds"", sep=""""))"
+"0","ci_95 <- readRDS(paste(params$results_dir_path,""/ci_95.rds"", sep=""""))"
+"0","diff_medians <- readRDS(paste(params$results_dir_path, ""/diff_medians.rds"",  sep=""""))"

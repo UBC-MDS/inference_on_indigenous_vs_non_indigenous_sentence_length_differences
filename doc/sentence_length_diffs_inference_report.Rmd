@@ -11,6 +11,13 @@ output:
 bibliography: sentence_length_race.bib
 ---
 
+<style>
+p.caption {
+  font-size: 0.75em;
+}
+</style>
+---
+
 ```{r setup, inlude=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(knitr)
@@ -47,6 +54,14 @@ Methodology for this study follows the basic principles of hypothesis testing. D
 
 The data set used for this study is the Offender Profile from 2017-2018 released by the Correctional Service of Canada. The link to this site can be found [here](https://open.canada.ca/data/en/dataset/844ff1e3-e137-41be-9ebe-6bd9843c1a53). Each entry in the data set corresponds to a single offender serving a two or more year-long sentence. The demographic details such as age, gender, and marital status at year-end are provided for each entry. This was retrieved from the Offender Management System (OMS). For the purposes of our inquiry, we dropped all columns except the racial grouping and the aggregated sentence length.
 
+```{r counts, inlude=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+counts <- read_csv('../results/group_counts.csv')
+count_non_ind <- counts[1,2]|>pull()
+count_ind <- counts[2,2]|>pull()
+```
+
+After cleaning up and removing the rows with undetermined lengths of sentence, the data set contained the total of `r format(count_ind)` records with race_grouping = "Indigenous" and `r format(count_non_ind)` records with race_grouping = "None Indigenous".
+
 ## Analysis
 
 A hypothesis test with a significance level of **0.05** was carried out to determine if there was a statistically significant difference in the medians of the sentence length between the indigenous and non-indigenous groups. The features used from the data set to complete this analysis were the racial grouping, which was already separated into indigenous and non-indigenous, and aggregate sentence length. The median was selected as the measure of central tendency and the permutation test under the null hypothesis. During data processing, we removed all columns except racial grouping and the aggregated sentence length. Hence the hypothesis test was defined as the following:
@@ -63,31 +78,29 @@ The R [@R] and Python programming languages [@Python] and the following R and Py
 
 The only relevant columns for our hypothesis test were the 'aggregate sentence length' and the 'racial grouping'. 'Racial grouping' column was included in the report and summarized data from the 'race' columns into two categories. "Aboriginal" corresponded to the offenders with a race of "First Nations", "Métis", or "Inuit". "Non Aboriginal" corresponded to all others. Note that this information was self-reported.
 
-```{r counts, inlude=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-counts <- read_csv('../results/group_counts.csv')
-```
-
-All other columns were dropped. While there were mo missing values, some sentences are of indeterminate length, and could not be used in the analysis. We also dropped all the rows with indeterminate sentences. At the end of data processing, the count of observations in either group was `r counts$Count[2]` and `r format(counts$Count[1])`. This provided a large enough sample size.
+All other columns were dropped. While there were mo missing values, some sentences are of indeterminate length, and could not be used in the analysis. We also dropped all the rows with indeterminate sentences. At the end of data processing, the count of observations in either group was `r format(count_ind)` and `r format(count_non_ind)`. This provided a large enough sample size.
 
 ```{r observations_group}
 knitr::kable(counts, caption = "Table 1. Number of observations in each group.", col.names = c("Group",
                            "Count of Offenders"))
 ```
 
-<br /> To decide what kind of measure of central tendency to apply in our hypothesis test, we looked at the distribution of the sentence lengths of either group (orange - non-indigenous, blue - indigenous) using a density plot. The distributions for both groups were right-skewed, so we decided to use the median as our parameter because it is less affected by the outliers in the data.
+<br /> To decide what kind of measure of central tendency to apply in our hypothesis test, we looked at the distribution of the sentence lengths of either group (orange - non-indigenous, blue - indigenous) using a density plot (Figure 1.) The distributions for both groups were right-skewed, so we decided to use the median as our parameter because it is less affected by the outliers in the data.
 
 ```{r desnity, fig.width=7, fig.height=3, fig.cap = "Figure 1. The distribution of the aggregate sentence length of offenders by racial group. Both distributions are right-skewed.", out.width='100%'}
 knitr::include_graphics('../results/eda-densities.png')
 ```
 
-Looking at the box plots, we noted the large overlap in the confidence intervals between the two groups, which at a glance indicated that a statistically significant difference was unlikely.
+We then graphed our sample using box-plots to get a visual understanding of the sentence length distribution in percentiles (Figure2.)
+
+Looking at these box plots, we noted the large overlap in the quantiles between the two groups, which at a glance indicated that a statistically significant difference was unlikely. Nonetheless, we decided to carry on with the hypothesis test, because intuition can be misleading.
 
 ```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The whiskers of the box plot represent the range 1.5*IQR above the upper-quartile and below the lower-quartile. The marker at the center of the box corresponds to the median.", out.width='100%'}
 
 knitr::include_graphics('../results/eda-box_plots.png')
 ```
 
-We had a large enough sample size to apply a permutation test as the total sample size was `r format(counts$Count[1] + counts$Count[2])`. We carried out the permutation test with 5,000 under the null hypothesis, computing and comparing the median for each of the two groups.
+We had a large enough sample size to apply a permutation test as the total sample size was `r format(count_ind + count_non_ind)`. We carried out the permutation test with 5,000 under the null hypothesis, computing and comparing the median for each of the two groups.
 
 The null hypothesis stated that there is no difference in the median sentence lengths between the indigenous and non-indigenous offenders. The alternate hypothesis stated that there is a difference in the median sentence lengths between the indigenous and non-indigenous populations. The test statistic was the difference in the sample medians of the two groups. The significance level was set to **0.05**.
 
