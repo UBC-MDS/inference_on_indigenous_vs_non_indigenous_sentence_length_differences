@@ -34,6 +34,10 @@ root directory of this project:
 
     make clean
 
+## Dependency Diagram 
+
+![](./Makefile.png)
+
 ## Dependencies
 
   - Python 3.7.3 and Python packages:
