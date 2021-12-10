@@ -98,7 +98,7 @@ We then graphed our sample using box-plots to get a visual understanding of the 
 
 Looking at these box plots, we noted the large overlap in the quantiles between the two groups, which at a glance indicated that a statistically significant difference was unlikely. Nonetheless, we decided to carry on with the hypothesis test, because intuition can be misleading.
 
-```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The whiskers of the box plot represent the range 1.5*IQR above the upper-quartile and below the lower-quartile. The marker at the center of the box corresponds to the median. Note the logarythmic scale.", out.width='100%'}
+```{r boxplots, fig.width=10, fig.height=3, fig.cap = "Figure 2. The boxplot of the sentence length of offenders by racial group. The whiskers of the box plot represent the range 1.5*IQR above the upper-quartile and below the lower-quartile. The marker at the center of the box corresponds to the median. Note the logarithmic scale.", out.width='100%'}
 
 knitr::include_graphics('../results/eda-box_plots.png')
 ```
