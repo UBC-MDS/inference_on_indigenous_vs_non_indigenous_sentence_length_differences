@@ -114,7 +114,7 @@ def main(processed_data_path, results_folder_path):
     # Save the boxplots to ~/doc/eda-box_plots.png
     
     ratio_boxplots = alt.Chart(df).mark_boxplot(size=50).encode(
-        x = alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", type='quantitative', axis=alt.Axis(format='~s')),
+        x = alt.X('aggregate_sentence_length', title="Aggregate Sentence Length (days)", type='quantitative', axis=alt.Axis(format='~s'), scale=alt.Scale(type='log')),
         y = alt.Y('race_grouping', title=""), 
         color = alt.Color('race_grouping', title="Race Grouping")
     ).properties(
