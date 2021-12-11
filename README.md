@@ -30,7 +30,7 @@ If you would like to reset to the clean state, with no data, intermediate or res
 
     make clean
 
-**Alternatively, you may want to run individual commands stepwise.**\
+**Alternatively, you may want to run individual commands stepwise.**
 
 To download data:
 
