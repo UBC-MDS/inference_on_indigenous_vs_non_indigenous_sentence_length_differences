@@ -21,11 +21,13 @@ The data set used for this study is the Offender Profile from 2017-2018 released
 The final report, including quantitative analysis and visual figures, can be found [here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
 
 ## Usage
-To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below.
+To replicate the analysis, clone this GitHub repository, and ensure you have installed the [dependencies](#dependencies) listed below.
 You may choose to replicate the analysis in 3 different ways: Docker, Make or Running Scripts Manually.
 Please refer to the documentation below.
 
 ### 1. Docker
+Note - the instructions in this section were tested in Git Bash on Windows Machine. Please note that different syntax may be required for different termials or operating systems.
+
 In this approach, [Docker](https://www.docker.com/get-started) is required to be installed in order to replicate the analysis. Once [Docker](https://www.docker.com/get-started) is installed, clone this repository.
 
 For your convenience all the output files are already incldued. So, to clear all the results and set to a clean state, please run the following command at the root directory of this project
@@ -50,11 +52,10 @@ To replicate the analysis, please run the following command at the root director
 ![](./Makefile.png)
 
 
-### 3. Running Scripts in Command Line
-
+### 3. Running Scripts Manually
 To download data:
 
-    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="../data/raw/offender_profile.csv".csv" --file_path="./data/raw/offender_profile.csv"
+    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="./data/raw/offender_profile.csv"
 
 Run eda report and save it as PDF in src folder:
 
