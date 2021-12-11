@@ -2,7 +2,7 @@
 # Kyle Ahn, Dec, 2021 
 
 # # use r-base:4.0.3 as base
-FROM r-base:4.0.3
+FROM r-base:3.6.1
 
 # Install R packages
 RUN apt-get update -qq && apt-get --no-install-recommends install \
