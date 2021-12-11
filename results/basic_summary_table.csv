@@ -1,5 +1,5 @@
 ,aggregate_sentence_length,aggregate_sentence_length,aggregate_sentence_length,aggregate_sentence_length
 ,mean,median,min,max
 race_grouping,,,,
-Indigenous,1769.552308447937,1387,730,43761
-Non Indigenous,1894.934327003102,1443,730,28398
+Indigenous,1769.552308447937,1387.0,730,43761
+Non Indigenous,1894.934327003102,1443.0,730,28398

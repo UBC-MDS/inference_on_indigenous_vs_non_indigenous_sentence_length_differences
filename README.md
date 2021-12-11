@@ -1,4 +1,4 @@
-# DSCI_522_indigenous_vs_non_indigenous_sentence_length_differences
+# indigenous_vs_non_indigenous_sentence_length_differences
 
 Project name: Statistical significance of indigenous vs non-indigenous racial grouping as a factor in determining aggregated sentence length in Canada?
 
@@ -21,16 +21,36 @@ The data set used for this study is the Offender Profile from 2017-2018 released
 The final report, including quantitative analysis and visual figures, can be found [here](https://htmlpreview.github.io/?https://github.com/UBC-MDS/DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences/blob/main/doc/sentence_length_diffs_inference_report.html).
 
 ## Usage
+To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below.
+You may choose to replicate the analysis in 3 different ways: Docker, Make or Running Scripts Manually.
+Please refer to the documentation below.
 
-To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below, and run the following commands in the command line/terminal from the root directory of this project:
+### 1. Docker
+In this approach, [Docker](https://www.docker.com/get-started) is required to be installed in order to replicate the analysis. Once [Docker](https://www.docker.com/get-started) is installed, clone this repository.
 
-    make all
+For your convenience all the output files are already incldued. So, to clear all the results and set to a clean state, please run the following command at the root directory of this project
 
-If you would like to reset to the clean state, with no data, intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+    docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences clean
+
+To replicate the analysis, please run the following command at the root directory of the project. This will create all the output files as well as the final report .html file.
+
+    docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences all
+
+Note: R packages in `Dockerfile` are not specified versions in order to avoid unncessary conflicts between dependencies. This means that different versions of R packages may be installed in Docker image. If you encounter any problems replicating the analysis on Docker, please try the other two approaches as alternatives.
+### 2. Make
+For your convenience all the output files are already incldued. So, to clear all the results and set to a clean state, please run the following command at the root directory of this project
 
     make clean
 
-**Alternatively, you may want to run individual commands stepwise.**
+To replicate the analysis, please run the following command at the root directory of the project. This will create all the output files as well as the final report .html file.
+
+    make all
+
+#### Makefile Dependency Diagram 
+![](./Makefile.png)
+
+
+### 3. Running Scripts in Command Line**
 
 To download data:
 
@@ -56,9 +76,6 @@ Run to generate sentence_length_diffs_inference_report html and md to view:
 
     Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
     
-## Dependency Diagram 
-
-![](./Makefile.png)
 
 ## Dependencies {#dependencies}
 
@@ -68,7 +85,7 @@ Run to generate sentence_length_diffs_inference_report html and md to view:
     -   numpy==1.21.2
     -   pandas==1.3.2
     -   altair==4.1.0
-    -   altair-saver==0.5.0
+    -   altair_saver==0.5.0
 
 -   R version 3.6.1 and R packages:
 
@@ -81,6 +98,7 @@ Run to generate sentence_length_diffs_inference_report html and md to view:
     -   kableExtra==1.3.4
 
 -   GNU make 4.2.1
+-   Docker Desktop
 
 ## License
 
