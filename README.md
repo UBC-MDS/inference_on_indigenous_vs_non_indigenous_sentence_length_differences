@@ -52,8 +52,7 @@ To replicate the analysis, please run the following command at the root director
 ![](./Makefile.png)
 
 
-### 3. Running Scripts Manually**
-
+### 3. Running Scripts Manually
 To download data:
 
     python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="./data/raw/offender_profile.csv"
