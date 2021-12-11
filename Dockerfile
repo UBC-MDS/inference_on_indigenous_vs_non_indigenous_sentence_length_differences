@@ -25,6 +25,7 @@ RUN wget \
 # Set miniconda3 python path
 ENV PATH="/root/miniconda3/bin:${PATH}"
 
+# Activate conda environment
 COPY environment.yml .
 RUN conda env create -f environment.yml
 SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]

@@ -26,7 +26,9 @@ You may choose to replicate the analysis in 3 different ways: Docker, Make or Ru
 Please refer to the documentation below.
 
 ### 1. Docker
-Docker should be installed in order to 
+In this approach, Docker is required to be installed in order to replicate the analysis.
+
+    docker run --rm -it -v C:\repos\ubc-mds\DSCI_522\DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences araiyuno/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences all
 
 ### 2. Make
 To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below, and run the following commands in the command line/terminal from the root directory of this project:
