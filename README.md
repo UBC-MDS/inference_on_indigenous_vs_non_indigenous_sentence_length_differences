@@ -26,23 +26,25 @@ You may choose to replicate the analysis in 3 different ways: Docker, Make or Ru
 Please refer to the documentation below.
 
 ### 1. Docker
-In this approach, [Docker](https://www.docker.com/get-started) is required to be installed in order to replicate the analysis. Once [Docker](https://www.docker.com/get-started) is installed, clone this repository, and run the following command in the command line/terminal at the root directory of this project.
+In this approach, [Docker](https://www.docker.com/get-started) is required to be installed in order to replicate the analysis. Once [Docker](https://www.docker.com/get-started) is installed, clone this repository.
 
-    docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences all
-
-If you want to go back to the clean state, please run the following command at the root directory of this project.
+For your convenience all the output files are already incldued. So, to clear all the results and set to a clean state, please run the following command at the root directory of this project
 
     docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences clean
 
+To replicate the analysis, please run the following command at the root directory of the project. This will create all the output files as well as the final report .html file.
+
+    docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences all
+
 Note: R packages in `Dockerfile` are not specified versions in order to avoid unncessary conflicts between dependencies. This means that different versions of R packages may be installed in Docker image. If you encounter any problems replicating the analysis on Docker, please try the other two approaches as alternatives.
 ### 2. Make
-To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below, and run the following commands in the command line/terminal from the root directory of this project:
-
-    make all
-
-If you would like to reset to the clean state, with no data, intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+For your convenience all the output files are already incldued. So, to clear all the results and set to a clean state, please run the following command at the root directory of this project
 
     make clean
+
+To replicate the analysis, please run the following command at the root directory of the project. This will create all the output files as well as the final report .html file.
+
+    make all
 
 #### Makefile Dependency Diagram 
 ![](./Makefile.png)

@@ -2,12 +2,13 @@
 # Kyle Ahn, Dec 11th, 2021 
 
 # # use rocker/tidyverse as base image
-FROM rocker/tidyverse
+FROM rocker/tidyverse:4.1
 
 # Install R packages
 RUN apt-get update -qq && apt-get --no-install-recommends install \
   && install2.r --error \
   --deps TRUE \
+  readr \
   kableExtra \
   knitr \
   docopt \
