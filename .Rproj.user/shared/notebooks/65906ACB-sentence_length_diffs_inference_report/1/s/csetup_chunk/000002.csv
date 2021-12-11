@@ -1,4 +1,0 @@
-"0","knitr::opts_chunk$set(echo = FALSE)"
-"0","library(knitr)"
-"0","library(kableExtra)"
-"0","library(tidyverse)"

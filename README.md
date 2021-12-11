@@ -1,4 +1,4 @@
-# DSCI_522_indigenous_vs_non_indigenous_sentence_length_differences
+# indigenous_vs_non_indigenous_sentence_length_differences
 
 Project name: Statistical significance of indigenous vs non-indigenous racial grouping as a factor in determining aggregated sentence length in Canada?
 

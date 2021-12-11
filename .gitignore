@@ -1,1 +1,3 @@
 *.log
+*.Rproj.user/*
+*.virtual_documents/*
