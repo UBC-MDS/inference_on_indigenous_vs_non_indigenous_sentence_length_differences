@@ -4,17 +4,17 @@
 # use rocker/tidyverse as the base image and
 FROM rocker/tidyverse
 
-# install R packages
-RUN apt-get update -qq && apt-get -y --no-install-recommends install \
-  && install2.r --error \
-    --deps TRUE \
-    cowsay \
-    here \
-    feather \
-    ggridges \
-    ggthemes \
-    e1071 \
-    caret 
+# # install R packages
+# RUN apt-get update -qq && apt-get -y --no-install-recommends install \
+#   && install2.r --error \
+#     --deps TRUE \
+#     cowsay \
+#     here \
+#     feather \
+#     ggridges \
+#     ggthemes \
+#     e1071 \
+#     caret 
 
 # install the kableExtra package using install.packages
 RUN Rscript -e "install.packages('kableExtra')"
