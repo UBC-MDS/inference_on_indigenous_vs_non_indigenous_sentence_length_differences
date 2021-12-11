@@ -25,7 +25,13 @@ RUN wget \
 # Set miniconda3 python path
 ENV PATH="/root/miniconda3/bin:${PATH}"
 
-# Activate conda environment
-COPY environment.yml .
-RUN conda env create -f environment.yml
-SHELL ["conda", "run", "-n", "myenv", "/bin/bash", "-c"]
+# Set conda-forge channel
+RUN conda config --append channels conda-forge
+
+# Install python packages
+RUN conda install -y -c anaconda \
+    docopt=0.6.2 \
+    numpy=1.21.2 \
+    pandas=1.3.2 \
+    altair=4.1.0 \
+    altair_saver=0.5.0
