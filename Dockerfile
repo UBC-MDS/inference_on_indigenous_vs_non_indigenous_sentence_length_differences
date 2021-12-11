@@ -2,7 +2,7 @@
 # Kyle Ahn, Dec, 2021 
 
 #Use rocker/tidyverse as base image
-FROM rocker/tidyverse
+FROM rocker/tidyverse:4.1
 
 # Install R packages
 RUN apt-get update -qq && apt-get --no-install-recommends install \
