@@ -1,17 +1,19 @@
 # Docker file for the Indigeneous vs Non-indigenous aggregate sentence predictor
-# Kyle Ahn, Dec, 2021 
+# Kyle Ahn, Dec 11th, 2021 
 
 # # use rocker/tidyverse as base image
 FROM rocker/tidyverse
 
 # Install R packages
-RUN Rscript -e "install.packages('kableExtra')"
-RUN Rscript -e "install.packages('knitr')"
-RUN Rscript -e "install.packages('docopt')"
-RUN Rscript -e "install.packages('janitor')"
-RUN Rscript -e "install.packages('infer')"
-RUN Rscript -e "install.packages('testthat')"
-
+RUN apt-get update -qq && apt-get --no-install-recommends install \
+  && install2.r --error \
+  --deps TRUE \
+  kableExtra \
+  knitr \
+  docopt \
+  janitor \
+  infer \
+  testthat
 
 # Install miniconda3 python distribution
 RUN wget \
