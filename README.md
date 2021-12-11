@@ -50,7 +50,7 @@ To replicate the analysis, please run the following command at the root director
 ![](./Makefile.png)
 
 
-### 3. Running Scripts in Command Line**
+### 3. Running Scripts in Command Line
 
 To download data:
 
