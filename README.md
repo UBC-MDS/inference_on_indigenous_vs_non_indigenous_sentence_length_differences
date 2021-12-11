@@ -28,13 +28,13 @@ Please refer to the documentation below.
 ### 1. Docker
 In this approach, [Docker](https://www.docker.com/get-started) is required to be installed in order to replicate the analysis. Once [Docker](https://www.docker.com/get-started) is installed, clone this repository, and run the following command in the command line/terminal at the root directory of this project.
 
-    docker run --rm -it -v C:\repos\ubc-mds\DSCI_522\DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences all
+    docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences all
 
 If you want to go back to the clean state, please run the following command at the root directory of this project.
 
-    docker run --rm -it -v C:\repos\ubc-mds\DSCI_522\DSCI_522_inference_on_indigenous_vs_non_indigenous_sentence_length_differences:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences clean
+    docker run --rm -it -v <ABSOLUTE_PATH_TO_PROJECT_DIRECTORY>:/home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences make -C /home/inference_on_indigenous_vs_non_indigenous_sentence_length_differences clean
 
-Note: R packages in `Dockerfile` are not specified versions in order to avoid unncessary conflicts between dependencies. This means that different versions of R packages may be installed in Docker image. 
+Note: R packages in `Dockerfile` are not specified versions in order to avoid unncessary conflicts between dependencies. This means that different versions of R packages may be installed in Docker image. If you encounter any problems replicating the analysis on Docker, please try the other two approaches as alternatives.
 ### 2. Make
 To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below, and run the following commands in the command line/terminal from the root directory of this project:
 
