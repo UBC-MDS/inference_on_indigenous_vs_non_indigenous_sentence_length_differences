@@ -1,8 +1,8 @@
 # Docker file for the Indigeneous vs Non-indigenous aggregate sentence predictor
 # Kyle Ahn, Dec, 2021 
 
-#Use rocker/tidyverse as base image
-FROM rocker/tidyverse:4.1
+# # use r-base:4.0.3 as base
+FROM r-base:4.0.3
 
 # Install R packages
 RUN apt-get update -qq && apt-get --no-install-recommends install \
