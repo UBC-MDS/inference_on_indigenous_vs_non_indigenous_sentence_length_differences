@@ -55,6 +55,10 @@ Run hypothesis test and produce output in the results folder:
 Run to generate sentence_length_diffs_inference_report html and md to view:
 
     Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
+    
+## Dependency Diagram 
+
+![](./Makefile.png)
 
 ## Dependencies {#dependencies}
 

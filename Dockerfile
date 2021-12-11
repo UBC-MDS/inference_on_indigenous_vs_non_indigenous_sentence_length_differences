@@ -39,13 +39,16 @@ RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_6
 # put anaconda python in path
 ENV PATH="/opt/conda/bin:${PATH}"
 
+RUN conda config --add channels conda-forge
+
 # install docopt python package
-RUN conda install -y -c anaconda \ 
+RUN conda install -y -c conda-forge \ 
     docopt \
     requests \
     numpy \ 
     pandas \
     altair \
-    altair-saver
+    altair_saver
+
+
     
-RUN conda install -y -c conda-forge feather-format
