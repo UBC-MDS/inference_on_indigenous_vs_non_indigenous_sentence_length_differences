@@ -1,11 +1,10 @@
 # Docker file for the Indigeneous vs Non-indigenous aggregate sentence predictor
 # Kyle Ahn, Dec, 2021 
 
-# # use r-base:3.6.1 as base
+# # use rocker/tidyverse as base image
 FROM rocker/tidyverse
 
 # Install R packages
-# install the kableExtra package using install.packages
 RUN Rscript -e "install.packages('kableExtra')"
 RUN Rscript -e "install.packages('knitr')"
 RUN Rscript -e "install.packages('docopt')"
