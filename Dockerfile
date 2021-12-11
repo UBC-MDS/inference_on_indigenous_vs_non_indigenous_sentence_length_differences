@@ -31,7 +31,6 @@ RUN conda config --append channels conda-forge
 
 
 # Install python packages
-RUN conda install -c conda-forge pandoc=2.16.1
 RUN conda install -y -c anaconda \
     docopt=0.6.2 \
     numpy=1.21.2 \
