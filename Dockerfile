@@ -1,21 +1,18 @@
 # Docker file for the Indigeneous vs Non-indigenous aggregate sentence predictor
 # Kyle Ahn, Dec, 2021 
 
-# # use r-base:4.0.3 as base
-FROM r-base:3.6.1
+# # use r-base:3.6.1 as base
+FROM rocker/tidyverse
 
 # Install R packages
-RUN apt-get update -qq && apt-get --no-install-recommends install \
-  && install2.r --error \
-  --deps TRUE \
-  readr \
-  testthat==3.0.4 \
-  tidyverse==1.3.1 \
-  knitr==1.26 \
-  janitor==2.1.0 \
-  infer==1.1.0 \
-  docopt==0.7.1 \
-  kableExtra==1.3.4
+# install the kableExtra package using install.packages
+RUN Rscript -e "install.packages('kableExtra')"
+RUN Rscript -e "install.packages('knitr')"
+RUN Rscript -e "install.packages('docopt')"
+RUN Rscript -e "install.packages('janitor')"
+RUN Rscript -e "install.packages('infer')"
+RUN Rscript -e "install.packages('testthat')"
+
 
 # Install miniconda3 python distribution
 RUN wget \
