@@ -22,35 +22,61 @@ The final report, including quantitative analysis and visual figures, can be fou
 
 ## Usage
 
-To replicate the analysis, clone this GitHub repository, ensure you have installed the
-[dependencies](#dependencies) listed below, and run the following
-commands in the command line/terminal from the root directory of this project:
+To replicate the analysis, clone this GitHub repository, ensure you have installed the [dependencies](#dependencies) listed below, and run the following commands in the command line/terminal from the root directory of this project:
 
     make all
 
-If you would like to reset to the clean state, with no data, intermediate or results
-files, run the following command at the command line/terminal from the
-root directory of this project:
+If you would like to reset to the clean state, with no data, intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 
     make clean
 
-## Dependencies
+**Alternatively, you may want to run individual commands stepwise.**\
 
-  - Python 3.7.3 and Python packages:
-      - docopt==0.6.2
-      - numpy==1.21.2
-      - pandas==1.3.2
-      - altair==4.1.0
-      - altair-saver==0.5.0
-  - R version 3.6.1 and R packages:
-      - knitr==1.26
-      - docopt==0.7.1
-      - janitor==2.1.0
-      - tidyverse==1.3.1
-      - testthat==3.0.4
-      - infer==1.1.0
-      - kableExtra==1.3.4
-  - GNU make 4.2.1
+To download data:
+
+    python src/download_data.py --url="http://www.csc-scc.gc.ca/005/opendata-donneesouvertes/Open%20Data%20File%2020170409%20v3%20(English).csv" --file_path="../data/raw/offender_profile.csv".csv" --file_path="./data/raw/offender_profile.csv"
+
+Run eda report and save it as PDF in src folder:
+
+    jupyter nbconvert --to pdf --execute "src/eda_offender_profile_raw_data.ipynb"
+
+Run clean_offender_profile_raw_data.r to clean and process the data for EDA and hypothesis testing:
+
+    Rscript src/clean_offender_profile_raw_data.r --raw_data_path="./data/raw/offender_profile.csv" --processed_dir_path="./data/processed"
+
+Run eda on cleaned and processed data:
+
+    python src/eda_processed_data.py --processed_data_path="./data/processed/processed_offender_profile.csv" --results_folder_path="./results"
+
+Run hypothesis test and produce output in the results folder:
+
+    Rscript src/hypothesis_test.r --processed_data_path="./data/processed/processed_offender_profile.csv" --results_dir_path="./results"
+
+Run to generate sentence_length_diffs_inference_report html and md to view:
+
+    Rscript -e "rmarkdown::render('./doc/sentence_length_diffs_inference_report.rmd')"
+
+## Dependencies {#dependencies}
+
+-   Python 3.7.3 and Python packages:
+
+    -   docopt==0.6.2
+    -   numpy==1.21.2
+    -   pandas==1.3.2
+    -   altair==4.1.0
+    -   altair-saver==0.5.0
+
+-   R version 3.6.1 and R packages:
+
+    -   knitr==1.26
+    -   docopt==0.7.1
+    -   janitor==2.1.0
+    -   tidyverse==1.3.1
+    -   testthat==3.0.4
+    -   infer==1.1.0
+    -   kableExtra==1.3.4
+
+-   GNU make 4.2.1
 
 ## License
 
