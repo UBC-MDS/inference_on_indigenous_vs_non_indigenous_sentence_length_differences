@@ -35,7 +35,7 @@ jobs:
         draft: false
         prerelease: false
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: kyleahn/inference_on_indigenous_vs_non_indigenous_sentence_length_differences # change this to your DockerHub username and repository
         username: ${{ secrets.DOCKER_USERNAME }} # you need to add your Docker username to this GitHub repo as a secret
